@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDF Article Annotator</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+
+  <header>
+    <h1>PDF Article Annotator</h1>
+    <p class="subtitle">Upload a PDF → Extract text → Annotate → Click terms for definitions</p>
+  </header>
+
+  <main>
+    <section class="controls">
+      <label class="upload-label">
+        <span>Select PDF</span>
+        <input type="file" id="pdfUpload" accept="application/pdf" />
+      </label>
+
+      <div class="toggles">
+        <label>
+          <input type="checkbox" id="toggleScientific" checked />
+          Scientific Terms
+        </label>
+
+        <label>
+          <input type="checkbox" id="toggleSimpleEnglish" checked />
+          Simple English
+        </label>
+
+        <select id="dictionaryMode">
+          <option value="combined">All Sciences</option>
+          <option value="micro">Microbiology</option>
+          <option value="genetics">Genetics</option>
+          <option value="immunology">Immunology</option>
+          <option value="biology">Biology</option>
+          <option value="chemistry">Chemistry</option>
+        </select>
+      </div>
+
+      <p id="statusMessage"></p>
+    </section>
+
+    <section class="article">
+      <h2 id="articleTitle"></h2>
+      <p id="articleMeta"></p>
+      <div id="articleContent"></div>
+    </section>
+  </main>
+
+  <!-- Tooltip -->
+  <div id="tooltip" class="tooltip hidden">
+    <div id="tooltipTerm" class="tooltip-term"></div>
+    <div id="tooltipSource" class="tooltip-source"></div>
+    <div id="tooltipDefinition" class="tooltip-definition"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
